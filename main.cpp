@@ -1,14 +1,19 @@
 #include <stdio.h>
 int main()
 {
-    int a = 0, ans = 0;
-    scanf("%d", &a);
-    while ( a ) {
-        if ( a % 2 == 1 ) {
-            ans+=1;
+    long long a = 1;
+    int f = 0;
+    scanf("%lld", &a);
+    while (a) {
+        int t = a%10;
+        if (t==0 && f) {
+            printf("%d", t);
         }
-        a /= 2 ;
+        if ( t != 0 ) {
+            f = 1;
+            printf("%d", t);
+        }
+        a /= 10;
     }
-    printf("%d", ans );
 }
 
