@@ -1,19 +1,28 @@
 #include <stdio.h>
 int main()
 {
-    long long a = 1;
-    int f = 0;
-    scanf("%lld", &a);
-    while (a) {
-        int t = a%10;
-        if (t==0 && f) {
-            printf("%d", t);
+    char s[4002];
+    scanf("%s", s);
+    int i = 0;
+    int st = 0;
+    while ( s[i] != '\0' ) {
+        if ( s[i] == '(' ) {
+            st += 1 ;
         }
-        if ( t != 0 ) {
-            f = 1;
-            printf("%d", t);
+        else if ( s[i] == ')' && st > 0 ) {
+            st -= 1;
         }
-        a /= 10;
+        else if ( s[i] == ')' && st <= 0 ) {
+            st = 100;
+            break;
+        }
+        i += 1;
+    }
+    if ( st == 0 ) {
+        printf("YES");
+    }
+    else {
+        printf("NO");
     }
 }
 
