@@ -1,28 +1,15 @@
 #include <stdio.h>
 int main()
 {
-    char s[4002];
-    scanf("%s", s);
-    int i = 0;
-    int st = 0;
-    while ( s[i] != '\0' ) {
-        if ( s[i] == '(' ) {
-            st += 1 ;
-        }
-        else if ( s[i] == ')' && st > 0 ) {
-            st -= 1;
-        }
-        else if ( s[i] == ')' && st <= 0 ) {
-            st = 100;
-            break;
-        }
-        i += 1;
-    }
-    if ( st == 0 ) {
-        printf("YES");
-    }
-    else {
-        printf("NO");
-    }
+    int c1 = 0, m1 = 0, c2 = 0, m2 = 0;
+    int c3 = 0, m3 = 0;
+    scanf ("%d:%d\n%d:%d", &c1, &m1, &c2, &m2);
+    m3 = ( m1 + m2 ) % 60 ;
+    c3 = ( c1 + c2 + (m1+m2)/60 ) % 24 ;
+    printf("%02d:%02d\n", c3, m3);
+
 }
+
+
+
 
